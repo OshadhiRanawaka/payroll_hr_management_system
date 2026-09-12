@@ -126,6 +126,9 @@ during implementation. Treat them as hard constraints:
   applied at the component level too (show an "Unauthorized" state if a role navigates directly to
   a restricted URL).
 
+> **IMPORTANT SECURITY NOTE (DEMO ROLE SWITCHER):**
+> The top bar role switcher is a **frontend-only demo convenience** built purely for prototype inspection. It is **not a security boundary** and does not provide real access control. When a real backend is connected, the role switcher must be completely removed and replaced by server-side authentication (e.g. OAuth 2.0 / JWT) and server-enforced RBAC/ABAC authorization middleware. Never treat the frontend role switcher as actual security.
+
 ---
 
 ## 5. Mock Data Conventions

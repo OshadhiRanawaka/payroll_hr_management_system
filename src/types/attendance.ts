@@ -28,12 +28,17 @@ export interface ShiftDefinition {
   requiredWorkHours: number
 }
 
+export type CorrectionStatus = 'pending' | 'approved' | 'rejected'
+
 export interface AttendanceCorrection {
   id: string
+  attendanceDayId?: string
+  employeeId: string
   originalTime: string
   correctedTime: string
   correctedBy: string
   reason: string
+  status: CorrectionStatus
   createdAt: string
 }
 
@@ -50,7 +55,10 @@ export interface AttendanceDay {
   regularHours: number
   overtimeHours: number
   lateMinutes: number
+  earlyDepartureMinutes: number
   status: DayAttendanceStatus
+  source?: PunchSource
+  deviceId?: string
   corrections?: AttendanceCorrection[]
 }
 

@@ -15,8 +15,12 @@ export type NavSection =
   | 'shifts'
   | 'leave'
   | 'payroll'
-  | 'devices'
+  | 'recruitment'
+  | 'performance'
+  | 'loans'
+  | 'expenses'
   | 'reports'
+  | 'devices'
   | 'self_service'
   | 'settings'
 
