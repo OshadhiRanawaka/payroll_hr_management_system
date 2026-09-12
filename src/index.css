@@ -1,24 +1,134 @@
 @import "tailwindcss";
 
-/* ==============================
-   PeopleFlow HR – Design Tokens
-   ============================== */
-@layer base {
-  :root {
-    --color-brand-50: #eef2ff;
-    --color-brand-100: #e0e7ff;
-    --color-brand-500: #6366f1;
-    --color-brand-600: #4f46e5;
-    --color-brand-700: #4338ca;
-    --color-accent-400: #a78bfa;
-    --color-accent-500: #8b5cf6;
-    --color-surface: #0f172a;
-    --color-surface-card: #1e293b;
-    --color-border: #334155;
-    --color-text-primary: #f1f5f9;
-    --color-text-muted: #94a3b8;
-  }
+/* =============================================================================
+   PeopleFlow HR — Design System Theme (Tailwind v4 CSS-first configuration)
+   All tokens defined here become Tailwind utilities automatically.
+   e.g. --color-nav-900 → bg-nav-900, text-nav-900, border-nav-900
+   ============================================================================= */
 
+@theme {
+  /* ── Navigation Surface ─────────────────────────────────────────────────── */
+  /* Deep navy/ink used for the sidebar, topbar, and primary navigation shell. */
+  --color-nav-950: #06091a;
+  --color-nav-900: #0c1228;
+  --color-nav-800: #131b38;
+  --color-nav-700: #1c2848;
+  --color-nav-600: #273659;
+  --color-nav-500: #3b4f7a;
+  --color-nav-400: #5a6f96;
+  --color-nav-300: #8494b8;
+  --color-nav-200: #b8c3d8;
+  --color-nav-100: #dde3ee;
+  --color-nav-50: #f0f3f8;
+
+  /* ── Paper / Content Surface ────────────────────────────────────────────── */
+  /* Warm off-white used for content areas, cards, and page backgrounds.      */
+  --color-paper-950: #1a1714;
+  --color-paper-900: #302c25;
+  --color-paper-800: #4a4438;
+  --color-paper-700: #6b6254;
+  --color-paper-600: #8c8172;
+  --color-paper-500: #a99e90;
+  --color-paper-400: #c4bdb2;
+  --color-paper-300: #dbd6ce;
+  --color-paper-200: #eae7e1;
+  --color-paper-100: #f4f2ee;
+  --color-paper-50: #faf9f6;
+
+  /* ── Accent — Teal ──────────────────────────────────────────────────────── */
+  /* Primary action color: buttons, active states, links, focus rings.        */
+  --color-accent-950: #011f1c;
+  --color-accent-900: #013c38;
+  --color-accent-800: #115e59;
+  --color-accent-700: #0f766e;
+  --color-accent-600: #0d9488;
+  --color-accent-500: #14b8a6;
+  --color-accent-400: #2dd4bf;
+  --color-accent-300: #5eead4;
+  --color-accent-200: #99f6e4;
+  --color-accent-100: #ccfbf1;
+  --color-accent-50: #f0fdfa;
+
+  /* ── Semantic: Success ──────────────────────────────────────────────────── */
+  /* Active, Approved, Present, On-time, Paid statuses.                       */
+  --color-success-900: #14532d;
+  --color-success-800: #166534;
+  --color-success-700: #15803d;
+  --color-success-600: #16a34a;
+  --color-success-500: #22c55e;
+  --color-success-400: #4ade80;
+  --color-success-300: #86efac;
+  --color-success-200: #bbf7d0;
+  --color-success-100: #dcfce7;
+  --color-success-50: #f0fdf4;
+
+  /* ── Semantic: Warning ──────────────────────────────────────────────────── */
+  /* Pending, Late, Needs Action, At-Risk statuses.                           */
+  --color-warning-900: #78350f;
+  --color-warning-800: #92400e;
+  --color-warning-700: #b45309;
+  --color-warning-600: #d97706;
+  --color-warning-500: #f59e0b;
+  --color-warning-400: #fbbf24;
+  --color-warning-300: #fcd34d;
+  --color-warning-200: #fde68a;
+  --color-warning-100: #fef3c7;
+  --color-warning-50: #fffbeb;
+
+  /* ── Semantic: Danger ───────────────────────────────────────────────────── */
+  /* Rejected, Absent, Error, Overdue, Negative-variance statuses.            */
+  --color-danger-900: #7f1d1d;
+  --color-danger-800: #991b1b;
+  --color-danger-700: #b91c1c;
+  --color-danger-600: #dc2626;
+  --color-danger-500: #ef4444;
+  --color-danger-400: #f87171;
+  --color-danger-300: #fca5a5;
+  --color-danger-200: #fecaca;
+  --color-danger-100: #fee2e2;
+  --color-danger-50: #fef2f2;
+
+  /* ── Semantic: Info ─────────────────────────────────────────────────────── */
+  /* Submitted, Locked/Read-only, In-Progress, Draft statuses.                */
+  --color-info-900: #1e3a8a;
+  --color-info-800: #1e40af;
+  --color-info-700: #1d4ed8;
+  --color-info-600: #2563eb;
+  --color-info-500: #3b82f6;
+  --color-info-400: #60a5fa;
+  --color-info-300: #93c5fd;
+  --color-info-200: #bfdbfe;
+  --color-info-100: #dbeafe;
+  --color-info-50: #eff6ff;
+
+  /* ── Neutral ────────────────────────────────────────────────────────────── */
+  /* General UI chrome: borders, dividers, placeholder text, disabled states. */
+  --color-ink-900: #18181b;
+  --color-ink-800: #27272a;
+  --color-ink-700: #3f3f46;
+  --color-ink-600: #52525b;
+  --color-ink-500: #71717a;
+  --color-ink-400: #a1a1aa;
+  --color-ink-300: #d4d4d8;
+  --color-ink-200: #e4e4e7;
+  --color-ink-100: #f4f4f5;
+  --color-ink-50: #fafafa;
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, 'Courier New', monospace;
+
+  /* ── Shadows ────────────────────────────────────────────────────────────── */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-elevated: 0 4px 12px 0 rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-overlay: 0 8px 24px 0 rgb(0 0 0 / 0.12), 0 4px 8px -2px rgb(0 0 0 / 0.06);
+  --shadow-nav: 1px 0 0 0 rgb(255 255 255 / 0.05);
+}
+
+/* =============================================================================
+   Base Layer — Global resets and default element styles
+   ============================================================================= */
+@layer base {
   *,
   *::before,
   *::after {
@@ -29,15 +139,22 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: var(--color-surface);
-    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    background-color: var(--color-paper-100);
+    color: var(--color-nav-900);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 
   a {
@@ -47,5 +164,24 @@
 
   button {
     cursor: pointer;
+    font-family: inherit;
+  }
+
+  input, select, textarea {
+    font-family: inherit;
+  }
+
+  /* Monospace / tabular numerics — apply to amounts, IDs, timestamps */
+  .font-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  /* Focus ring consistent with accent color */
+  :focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
