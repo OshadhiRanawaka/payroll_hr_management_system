@@ -1,75 +1,68 @@
-/**
- * PeopleFlow HR – HomePage
- *
- * Placeholder home page confirming the dev server is running.
- * Replace this with a proper dashboard layout as the project grows.
- */
+import { Link } from 'react-router-dom'
+import { Badge, Button, Card } from '../components/ui'
+import { company, employees, biometricDevices, payrollRuns } from '../data'
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-8 p-8">
-      {/* Hero badge */}
-      <span className="rounded-full border border-indigo-500/40 bg-indigo-500/10 px-4 py-1 text-sm font-medium text-indigo-400">
-        Frontend Demo · v0.1.0
-      </span>
+    <main className="min-h-screen bg-paper text-ink flex flex-col items-center justify-center p-6 space-y-8">
+      {/* Top Tag */}
+      <div className="flex items-center gap-2">
+        <Badge variant="info">Enterprise HR & Payroll Prototype</Badge>
+        <span className="text-xs font-mono text-ink-muted">Nimbus Holdings (Pvt) Ltd</span>
+      </div>
 
-      {/* Logo + title */}
-      <div className="flex flex-col items-center gap-3 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-500/30">
-          <svg
-            className="h-8 w-8 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={1.8}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-        </div>
-
-        <h1 className="text-5xl font-bold tracking-tight text-slate-100">
-          PeopleFlow{' '}
-          <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-            HR
-          </span>
+      {/* Main Hero Header */}
+      <div className="text-center space-y-3 max-w-2xl">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-ink tracking-tight">
+          PeopleFlow <span className="text-accent">HR</span>
         </h1>
-
-        <p className="max-w-md text-lg text-slate-400">
-          A modern HR &amp; Payroll management system. Built with React, TypeScript, and Tailwind CSS.
+        <p className="text-sm sm:text-base text-ink-muted leading-relaxed">
+          Biometric Attendance • Gross-to-Net Payroll • Employee Self-Service • Multi-Branch Operations
         </p>
       </div>
 
-      {/* Status card */}
-      <div className="w-full max-w-sm rounded-2xl border border-slate-700/60 bg-slate-800/50 p-6 shadow-xl backdrop-blur-sm">
-        <div className="mb-4 flex items-center gap-2">
-          <span className="relative flex h-3 w-3">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
-          </span>
-          <span className="text-sm font-medium text-emerald-400">Dev server running</span>
-        </div>
-        <p className="text-sm text-slate-500">
-          Router is configured. Start building your pages inside{' '}
-          <code className="rounded bg-slate-700 px-1.5 py-0.5 font-mono text-xs text-slate-300">
-            src/pages/
-          </code>
-          .
-        </p>
+      {/* Quick Action Navigation Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl">
+        <Card className="hover:border-accent transition-colors">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <Badge variant="success" dot>Mock Data Layer Ready</Badge>
+              <span className="text-xs font-mono text-ink-muted">/data-check</span>
+            </div>
+            <h3 className="text-lg font-bold text-ink">Inspect Mock Data Layer</h3>
+            <p className="text-xs text-ink-muted">
+              Verify all 7 database domains ({company.totalHeadcount.toLocaleString()} headcount context, {employees.length} seeded employees, {biometricDevices.length} devices, {payrollRuns.length} payroll periods).
+            </p>
+            <Link to="/data-check" className="block pt-2">
+              <Button variant="primary" size="md" className="w-full">
+                Open /data-check Page
+              </Button>
+            </Link>
+          </div>
+        </Card>
+
+        <Card className="hover:border-accent transition-colors">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <Badge variant="info">Control Room Design System</Badge>
+              <span className="text-xs font-mono text-ink-muted">/style-guide</span>
+            </div>
+            <h3 className="text-lg font-bold text-ink">UI Component Style Guide</h3>
+            <p className="text-xs text-ink-muted">
+              Explore theme colors (dark navy nav, warm paper background, teal accent), buttons, cards, status badges, tabular numerics, and KPI metrics.
+            </p>
+            <Link to="/style-guide" className="block pt-2">
+              <Button variant="secondary" size="md" className="w-full">
+                Open Component Style Guide
+              </Button>
+            </Link>
+          </div>
+        </Card>
       </div>
 
-      {/* Stack chips */}
-      <div className="flex flex-wrap justify-center gap-2">
-        {['Vite', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'React Router v7'].map((tech) => (
-          <span
-            key={tech}
-            className="rounded-lg border border-slate-700 bg-slate-800 px-3 py-1 text-xs font-medium text-slate-400"
-          >
-            {tech}
-          </span>
-        ))}
+      {/* Footer Info */}
+      <div className="flex flex-wrap justify-center gap-2 text-xs font-mono text-ink-muted pt-4">
+        <span>Vite 8</span> • <span>React 19</span> • <span>TypeScript 6</span> • <span>Tailwind CSS v4</span>
       </div>
     </main>
   )

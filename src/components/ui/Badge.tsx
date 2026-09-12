@@ -98,20 +98,33 @@ export function Badge({
 
 /* ─── Convenience pre-configured status badges ──────────────────────────── */
 
-/** Common HR/payroll status badges — use these for consistency */
-export const StatusBadge = {
-  Active: () => <Badge variant="success" dot>Active</Badge>,
-  Inactive: () => <Badge variant="neutral" dot>Inactive</Badge>,
-  Pending: () => <Badge variant="warning" dot>Pending</Badge>,
-  Approved: () => <Badge variant="success" dot>Approved</Badge>,
-  Rejected: () => <Badge variant="danger" dot>Rejected</Badge>,
-  Draft: () => <Badge variant="info" dot>Draft</Badge>,
-  Submitted: () => <Badge variant="info" dot>Submitted</Badge>,
-  Locked: () => <Badge variant="info" dot>Locked</Badge>,
-  Late: () => <Badge variant="warning" dot>Late</Badge>,
-  Absent: () => <Badge variant="danger" dot>Absent</Badge>,
-  Present: () => <Badge variant="success" dot>Present</Badge>,
-  OnLeave: () => <Badge variant="accent" dot>On Leave</Badge>,
-  Paid: () => <Badge variant="success" dot>Paid</Badge>,
-  Overdue: () => <Badge variant="danger" dot>Overdue</Badge>,
-} as const
+export interface StatusBadgeProps {
+  status: string
+  customVariant?: BadgeVariant
+  dot?: boolean
+}
+
+export function StatusBadge({ status, customVariant, dot = true }: StatusBadgeProps) {
+  const normalized = status.toLowerCase().replace(/_/g, ' ')
+
+  let variant: BadgeVariant = customVariant || 'neutral'
+  if (!customVariant) {
+    if (['active', 'approved', 'present', 'paid', 'success', 'on-time'].includes(normalized)) {
+      variant = 'success'
+    } else if (['pending', 'late', 'warning', 'at-risk', 'needs action'].includes(normalized)) {
+      variant = 'warning'
+    } else if (['rejected', 'absent', 'danger', 'error', 'overdue'].includes(normalized)) {
+      variant = 'danger'
+    } else if (['submitted', 'locked', 'in-progress', 'draft', 'info'].includes(normalized)) {
+      variant = 'info'
+    } else if (['on_leave', 'on leave', 'accent'].includes(normalized)) {
+      variant = 'accent'
+    }
+  }
+
+  return (
+    <Badge variant={variant} dot={dot}>
+      {status.replace(/_/g, ' ')}
+    </Badge>
+  )
+}

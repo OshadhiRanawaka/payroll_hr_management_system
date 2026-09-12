@@ -1,25 +1,59 @@
 /**
  * src/types/index.ts
  *
- * Barrel export for all shared TypeScript types and interfaces.
- *
- * Example types to add as the project grows:
- *
- *   export type { Employee, EmployeeStatus } from './employee'
- *   export type { PayrollRun, PayslipLine } from './payroll'
- *   export type { Department } from './department'
- *   export type { LeaveRequest, LeaveType } from './leave'
+ * Barrel export for all shared TypeScript types and interfaces across PeopleFlow HR domains.
+ * Types here have zero runtime dependencies and zero data imports.
  */
 
-// ---------------------------------------------------------------------------
-// Shared primitive types
-// ---------------------------------------------------------------------------
-
-/** ISO 8601 date string, e.g. "2024-01-31" */
+// Shared Primitives
 export type ISODate = string
-
-/** Monetary amount in the system's base currency (e.g. USD cents or a float) */
 export type MonetaryAmount = number
-
-/** Generic ID type — keeps the door open to switch from number → string (UUID) */
 export type ID = string | number
+
+// Organization Domain
+export type { Company, Branch, Department, Designation } from './organization'
+
+// Employee Domain
+export type { Employee, EmploymentType, EmployeeStatus, BankDetails } from './employee'
+
+// Biometric Domain
+export type { BiometricDevice, DeviceHealthStatus, SyncLog } from './biometric'
+
+// Attendance Domain
+export type {
+  AttendanceEvent,
+  PunchSource,
+  PunchType,
+  VerificationMethod,
+  ShiftDefinition,
+  AttendanceCorrection,
+  AttendanceDay,
+  DayAttendanceStatus,
+  AttendanceException,
+  ExceptionType,
+  ExceptionSeverity,
+  ExceptionStatus,
+} from './attendance'
+
+// Leave Domain
+export type {
+  LeaveType,
+  AccrualRule,
+  ApprovalStatus,
+  ApprovalStep,
+  LeaveRequest,
+  LeaveBalance,
+} from './leave'
+
+// Payroll Domain
+export type {
+  PayrollRun,
+  PayrollRunStatus,
+  Payslip,
+  EmployeeLoan,
+  LoanType,
+  LoanStatus,
+} from './payroll'
+
+// Roles Domain
+export type { RoleId, NavSection, AccessLevel, RolePermission, RoleDefinition } from './role'

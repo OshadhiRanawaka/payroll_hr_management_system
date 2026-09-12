@@ -46,14 +46,7 @@ const EMPLOYEE_COLS: TableColumn<EmployeeRow>[] = [
   {
     key: 'status',
     header: 'Status',
-    render: (row) => {
-      const map = {
-        Active: <StatusBadge.Active />,
-        Inactive: <StatusBadge.Inactive />,
-        'On Leave': <StatusBadge.OnLeave />,
-      }
-      return map[row.status]
-    },
+    render: (row) => <StatusBadge status={row.status} />,
   },
   {
     key: 'salary',
@@ -431,20 +424,20 @@ export default function StyleGuidePage() {
             {/* Pre-configured StatusBadge shortcuts */}
             <Card header={<p className="text-xs font-semibold text-ink-500 uppercase tracking-wider">StatusBadge presets — use these for common HR/payroll statuses</p>}>
               <div className="flex flex-wrap gap-3 items-center">
-                <StatusBadge.Active />
-                <StatusBadge.Inactive />
-                <StatusBadge.Pending />
-                <StatusBadge.Approved />
-                <StatusBadge.Rejected />
-                <StatusBadge.Draft />
-                <StatusBadge.Submitted />
-                <StatusBadge.Locked />
-                <StatusBadge.Late />
-                <StatusBadge.Absent />
-                <StatusBadge.Present />
-                <StatusBadge.OnLeave />
-                <StatusBadge.Paid />
-                <StatusBadge.Overdue />
+                <StatusBadge status="Active" />
+                <StatusBadge status="Inactive" />
+                <StatusBadge status="Pending" />
+                <StatusBadge status="Approved" />
+                <StatusBadge status="Rejected" />
+                <StatusBadge status="Draft" />
+                <StatusBadge status="Submitted" />
+                <StatusBadge status="Locked" />
+                <StatusBadge status="Late" />
+                <StatusBadge status="Absent" />
+                <StatusBadge status="Present" />
+                <StatusBadge status="On Leave" />
+                <StatusBadge status="Paid" />
+                <StatusBadge status="Overdue" />
               </div>
             </Card>
 
