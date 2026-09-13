@@ -106,9 +106,9 @@ export function OrgStructureView() {
         </div>
 
         <div className="p-6">
-          {subTab === 'departments' && <Table columns={deptCols} data={departments} />}
-          {subTab === 'branches' && <Table columns={branchCols} data={branches} />}
-          {subTab === 'designations' && <Table columns={desigCols} data={designations} />}
+          {subTab === 'departments' && <Table columns={deptCols} data={departments} keyExtractor={(d) => d.id} />}
+          {subTab === 'branches' && <Table columns={branchCols} data={branches} keyExtractor={(b) => b.id} />}
+          {subTab === 'designations' && <Table columns={desigCols} data={designations} keyExtractor={(d) => d.id} />}
         </div>
       </Card>
     </div>

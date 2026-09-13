@@ -13,6 +13,7 @@ export { employees } from './employees'
 
 // 3. Biometric / Devices Domain
 export { biometricDevices, syncLogs } from './biometrics'
+export * from './shifts'
 
 // 4. Attendance Domain
 export {

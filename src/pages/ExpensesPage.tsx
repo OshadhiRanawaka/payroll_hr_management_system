@@ -6,7 +6,6 @@ export default function ExpensesPage() {
       title="Expenses & Claims"
       section="expenses"
       description="Employee expense claims, receipt attachments, travel allowance approvals, and reimbursement integration."
-      specReference="Specification §4.12"
       sampleCountText="Mock data domain ready for expense policy enforcement and claim tracking."
       icon={
         <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

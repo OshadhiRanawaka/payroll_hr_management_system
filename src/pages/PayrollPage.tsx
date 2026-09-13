@@ -7,7 +7,6 @@ export default function PayrollPage() {
       title="Payroll Processing & Maker-Checker Engine"
       section="payroll"
       description="Gross-to-net calculation, statutory EPF/ETF/PAYE deductions, payslip generation, and strict Maker-Checker approval gate."
-      specReference="Specification §4.6, §7 & §19 (Maker-Checker Control)"
       sampleCountText={`Mock data: ${payrollRuns.length} monthly payroll runs (Draft → Submitted → Approved → Locked → Paid), ${payslips.length} detailed payslip records.`}
       icon={
         <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -8,6 +8,7 @@ import {
   employees,
   departments,
   branches,
+  biometricDevices,
 } from '../data'
 import { useRole } from '../lib'
 import type { AttendanceDay, AttendanceException } from '../types'
@@ -163,6 +164,29 @@ export default function AttendancePage() {
       }
     },
     {
+      key: 'source',
+      header: 'Source',
+      render: (d) => (
+        <Badge variant="neutral" className="capitalize">
+          {d.source || 'N/A'}
+        </Badge>
+      )
+    },
+    {
+      key: 'device',
+      header: 'Device',
+      render: (d) => {
+        if (!d.deviceId) return <span className="text-xs text-ink-muted">--</span>
+        const device = biometricDevices.find(dev => dev.id === d.deviceId)
+        return (
+          <div className="flex flex-col">
+            <span className="text-xs font-bold text-ink">{device?.deviceName || d.deviceId}</span>
+            {device?.locationName && <span className="text-[10px] text-ink-muted">{device.locationName}</span>}
+          </div>
+        )
+      }
+    },
+    {
       key: 'hours',
       header: 'Hours (Reg/OT/Late/Early)',
       render: (d) => (
@@ -254,7 +278,6 @@ export default function AttendancePage() {
             <span className="text-xs font-mono font-bold text-accent uppercase bg-accent-subtle px-2 py-0.5 rounded">
               Attendance
             </span>
-            <span className="text-xs text-ink-muted font-mono">• Specification §4.3 & §6</span>
           </div>
           <h1 className="text-2xl font-bold text-ink mt-1">Attendance & Exceptions</h1>
           <p className="text-xs text-ink-muted mt-0.5">

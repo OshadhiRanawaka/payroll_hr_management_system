@@ -9,6 +9,8 @@ export interface RoleContextType {
   isSectionVisible: (section: NavSection) => boolean
   getSectionAccess: (section: NavSection) => AccessLevel
   allRoles: RoleDefinition[]
+  loginAsNewUser: (user: Employee) => void
+  logout: () => void
 }
 
 export const RoleContext = createContext<RoleContextType | undefined>(undefined)

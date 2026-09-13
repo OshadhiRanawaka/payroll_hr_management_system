@@ -5,11 +5,11 @@ export const leaveTypes: LeaveType[] = [
     id: 'leave-annual',
     name: 'Annual Leave',
     code: 'AL',
-    entitlementDays: 14,
-    accrualRule: 'annual_grant',
+    entitlementDays: 21,
+    accrualRule: 'monthly_accrual',
     carryForwardLimit: 7,
     encashmentAllowed: true,
-    description: 'Standard paid annual leave granted at the beginning of each calendar year.',
+    description: 'Accrues 1.75 days/month. Standard paid annual leave.',
   },
   {
     id: 'leave-casual',
@@ -19,7 +19,7 @@ export const leaveTypes: LeaveType[] = [
     accrualRule: 'annual_grant',
     carryForwardLimit: 0,
     encashmentAllowed: false,
-    description: 'Short-notice paid leave for personal affairs or unexpected matters.',
+    description: 'Front-loaded. Short-notice paid leave for personal affairs or unexpected matters.',
   },
   {
     id: 'leave-medical',
@@ -29,7 +29,7 @@ export const leaveTypes: LeaveType[] = [
     accrualRule: 'annual_grant',
     carryForwardLimit: 0,
     encashmentAllowed: false,
-    description: 'Paid medical leave supported by a qualified medical practitioner certificate.',
+    description: 'Front-loaded. Paid medical leave supported by a qualified medical practitioner certificate.',
   },
   {
     id: 'leave-maternity',
@@ -39,17 +39,17 @@ export const leaveTypes: LeaveType[] = [
     accrualRule: 'immediate',
     carryForwardLimit: 0,
     encashmentAllowed: false,
-    description: 'Statutory paid maternity leave for female employees under Shop & Office Act.',
+    description: 'Statutory paid maternity leave for female employees.',
   },
   {
     id: 'leave-nopay',
     name: 'No-Pay Leave',
     code: 'NPL',
-    entitlementDays: 30,
+    entitlementDays: 0,
     accrualRule: 'immediate',
     carryForwardLimit: 0,
     encashmentAllowed: false,
-    description: 'Unpaid leave subject to prior approval from Department Manager and HR.',
+    description: 'Granted on request only. Unpaid leave subject to prior approval from Department Manager and HR.',
   },
 ]
 

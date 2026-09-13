@@ -6,11 +6,14 @@ import { useRole } from '../lib'
 import type { Employee } from '../types'
 import { EmployeeProfileModal } from './Employees/EmployeeProfileModal'
 import { OrgStructureView } from './Employees/OrgStructureView'
+import { AddEmployeeModal } from './Employees/AddEmployeeModal'
 
 export default function EmployeesPage() {
   const { activeRoleId, currentUser } = useRole()
   const [mainTab, setMainTab] = useState('directory')
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null)
+  const [employeeList, setEmployeeList] = useState<Employee[]>(employees)
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false)
 
   // Filter States
   const [searchQuery, setSearchQuery] = useState('')
@@ -27,7 +30,7 @@ export default function EmployeesPage() {
   const managerDept = departments.find((d) => d.id === managerDeptId)
 
   // Apply Role Scope + Filters
-  const filteredEmployees = employees.filter((emp) => {
+  const filteredEmployees = employeeList.filter((emp) => {
     // 1. Role Scope Restriction: Department Manager sees only their department
     if (isDepartmentManager && emp.departmentId !== managerDeptId) {
       return false
@@ -67,9 +70,8 @@ export default function EmployeesPage() {
   // Table Columns
   const employeeCols: TableColumn<Employee>[] = [
     {
-      key: 'code',
+      key: 'employeeCode',
       header: 'Emp Code',
-      accessor: 'employeeCode',
       mono: true,
       width: '110px',
     },
@@ -169,9 +171,8 @@ export default function EmployeesPage() {
         <div>
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono font-bold text-accent uppercase bg-accent-subtle px-2 py-0.5 rounded">
-              Employee Management
+              People
             </span>
-            <span className="text-xs text-ink-muted font-mono">• Specification §4.2 & §8</span>
           </div>
           <h1 className="text-2xl font-bold text-ink mt-1">Employees Directory & Organization</h1>
           <p className="text-xs text-ink-muted mt-0.5">
@@ -181,7 +182,7 @@ export default function EmployeesPage() {
 
         <div className="flex items-center gap-3">
           {!isAuditor && (
-            <Button variant="primary" size="sm" onClick={() => alert('New Employee onboarding flow.')}>
+            <Button variant="primary" size="sm" onClick={() => setIsAddModalOpen(true)}>
               + Add Employee
             </Button>
           )}
@@ -333,6 +334,13 @@ export default function EmployeesPage() {
         employee={selectedEmployee}
         onClose={() => setSelectedEmployee(null)}
       />
+
+      {isAddModalOpen && (
+        <AddEmployeeModal
+          onClose={() => setIsAddModalOpen(false)}
+          onAdd={(newEmp) => setEmployeeList((prev) => [newEmp, ...prev])}
+        />
+      )}
     </div>
   )
 }

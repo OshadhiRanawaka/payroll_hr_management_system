@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useRole } from '../lib'
 import type { RoleId } from '../types'
 
 export default function TopBar() {
-  const { activeRoleId, setActiveRoleId, currentUser, activeRole, allRoles } = useRole()
+  const { activeRoleId, setActiveRoleId, currentUser, activeRole, allRoles, logout } = useRole()
+  const navigate = useNavigate()
   const [showNotifications, setShowNotifications] = useState(false)
 
   const notifications = [
@@ -107,6 +109,18 @@ export default function TopBar() {
             <div className="text-[10px] font-mono text-ink-muted mt-1 leading-none">
               {activeRole.name}
             </div>
+          </div>
+
+          <div className="pl-3 border-l border-paper-border ml-1">
+            <button
+              onClick={() => {
+                logout()
+                navigate('/sign-in')
+              }}
+              className="text-xs text-danger-text hover:text-danger hover:bg-danger-subtle px-2 py-1.5 rounded transition-colors font-medium"
+            >
+              Sign Out
+            </button>
           </div>
         </div>
       </div>

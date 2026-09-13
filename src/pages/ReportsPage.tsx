@@ -6,7 +6,6 @@ export default function ReportsPage() {
       title="Reports & Analytics"
       section="reports"
       description="Attendance summary reports, payroll cost breakdowns, overtime analytics, absenteeism rates, and statutory tax compliance exports."
-      specReference="Specification §4.13 & §8 Analytics Domain"
       sampleCountText="Mock data reporting engine ready for multi-branch cost-center filtering."
       icon={
         <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

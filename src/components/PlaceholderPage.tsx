@@ -7,7 +7,6 @@ interface PlaceholderPageProps {
   title: string
   section: NavSection
   description: string
-  specReference: string
   sampleCountText?: string
   icon?: JSX.Element
 }
@@ -16,7 +15,6 @@ export default function PlaceholderPage({
   title,
   section,
   description,
-  specReference,
   sampleCountText,
   icon,
 }: PlaceholderPageProps) {
@@ -37,9 +35,6 @@ export default function PlaceholderPage({
             <div className="flex items-center gap-2 flex-wrap">
               <h1 className="text-2xl font-bold text-ink">{title}</h1>
               <Badge variant="info">Coming Soon</Badge>
-              <span className="text-xs font-mono bg-paper text-ink-muted px-2 py-0.5 rounded border border-paper-border">
-                {specReference}
-              </span>
             </div>
             <p className="text-sm text-ink-muted mt-1">{description}</p>
           </div>

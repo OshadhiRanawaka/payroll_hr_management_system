@@ -6,7 +6,6 @@ export default function RecruitmentPage() {
       title="Recruitment & Onboarding"
       section="recruitment"
       description="Job openings, applicant tracking, interview scheduling, offer letters, and onboarding checklist workflows."
-      specReference="Specification §4.9"
       sampleCountText="Mock data domain ready for recruitment pipelines and candidate conversion."
       icon={
         <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

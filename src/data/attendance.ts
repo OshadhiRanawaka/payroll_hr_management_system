@@ -234,7 +234,10 @@ export const attendanceDays: AttendanceDay[] = [
     regularHours: 7.5,
     overtimeHours: 0.35,
     lateMinutes: 0,
+    earlyDepartureMinutes: 0,
     status: 'present',
+    deviceId: 'dev-col-01',
+    source: 'biometric',
   },
   {
     id: 'att-day-20260911-002',
@@ -247,7 +250,10 @@ export const attendanceDays: AttendanceDay[] = [
     regularHours: 7.3,
     overtimeHours: 0,
     lateMinutes: 42,
+    earlyDepartureMinutes: 0,
     status: 'late',
+    deviceId: 'dev-col-01',
+    source: 'biometric',
   },
   {
     id: 'att-day-20260911-005',
@@ -260,7 +266,10 @@ export const attendanceDays: AttendanceDay[] = [
     regularHours: 7.5,
     overtimeHours: 0.1,
     lateMinutes: 0,
+    earlyDepartureMinutes: 0,
     status: 'present',
+    deviceId: 'dev-hor-03',
+    source: 'biometric',
     corrections: [
       {
         id: 'corr-001',
@@ -268,6 +277,7 @@ export const attendanceDays: AttendanceDay[] = [
         correctedTime: 'Ignored duplicate punch',
         correctedBy: 'emp-002', // Kasun Perera (HR Admin)
         reason: 'Automated duplicate punch filter applied (35s interval)',
+        status: 'approved',
         createdAt: '2026-09-11T09:00:00Z',
       },
     ],
@@ -283,7 +293,10 @@ export const attendanceDays: AttendanceDay[] = [
     regularHours: 7.75,
     overtimeHours: 0.15,
     lateMinutes: 0,
+    earlyDepartureMinutes: 0,
     status: 'present',
+    deviceId: 'dev-hor-01',
+    source: 'biometric',
   },
   {
     id: 'att-day-20260911-011',
@@ -296,7 +309,10 @@ export const attendanceDays: AttendanceDay[] = [
     regularHours: 0,
     overtimeHours: 0,
     lateMinutes: 0,
+    earlyDepartureMinutes: 120, // Example of early departure
     status: 'absent',
+    deviceId: 'dev-hor-02',
+    source: 'biometric',
   },
   {
     id: 'att-day-20260911-014',
@@ -309,6 +325,7 @@ export const attendanceDays: AttendanceDay[] = [
     regularHours: 0,
     overtimeHours: 0,
     lateMinutes: 0,
+    earlyDepartureMinutes: 0,
     status: 'on_leave',
   },
 ]

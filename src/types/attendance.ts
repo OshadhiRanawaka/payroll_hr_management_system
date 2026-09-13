@@ -83,3 +83,35 @@ export interface AttendanceException {
   resolvedBy?: string
   resolutionNote?: string
 }
+
+export interface WeeklyOffPattern {
+  id: string
+  name: string
+  daysOff: number[] // 0 = Sunday, 1 = Monday, etc.
+  branchId?: string
+  departmentId?: string
+}
+
+export interface BranchShiftRule {
+  id: string
+  shiftId: string
+  branchId: string
+  gracePeriodMinutes?: number
+  breakDurationMinutes?: number
+}
+
+export interface RosterAssignment {
+  id: string
+  employeeId: string
+  shiftId: string
+  startDate: string // YYYY-MM-DD
+  endDate?: string // YYYY-MM-DD, optional if ongoing
+}
+
+export interface Holiday {
+  id: string
+  date: string // YYYY-MM-DD
+  name: string
+  type: 'public' | 'company'
+  branchIds?: string[] // If undefined, applies globally
+}

@@ -7,7 +7,6 @@ export default function LoansPage() {
       title="Loans & Salary Advances"
       section="loans"
       description="Employee loan requests, approval workflows, repayment schedules, and automated payroll recovery."
-      specReference="Specification §4.11"
       sampleCountText={`Mock data: ${employeeLoans.length} active employee loan schedules with monthly installment recovery.`}
       icon={
         <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

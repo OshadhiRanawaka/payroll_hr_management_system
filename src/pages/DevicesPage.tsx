@@ -7,7 +7,6 @@ export default function DevicesPage() {
       title="Biometric Devices & Health Monitoring"
       section="devices"
       description="Fingerprint terminal management, IP configuration, sync log audit, and offline queue backlog inspection."
-      specReference="Specification §4.3, §5 & §8 Biometric Domain"
       sampleCountText={`Mock data: ${biometricDevices.length} hardware terminals across 4 branches, ${syncLogs.length} sync logs buffered.`}
       icon={
         <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

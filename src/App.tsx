@@ -3,8 +3,9 @@ import AppLayout from './components/AppLayout'
 import { RequireAccess } from './components/RequireAccess'
 import { RoleProvider } from './lib/RoleContext'
 
-// Pages
 import DashboardPage from './pages/DashboardPage'
+import SignInPage from './pages/SignInPage'
+import SignUpPage from './pages/SignUpPage'
 import EmployeesPage from './pages/EmployeesPage'
 import AttendancePage from './pages/AttendancePage'
 import ShiftsPage from './pages/ShiftsPage'
@@ -25,6 +26,10 @@ function App() {
     <RoleProvider>
       <BrowserRouter>
         <Routes>
+          {/* Auth Routes */}
+          <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+
           {/* Main Application Shell Layout */}
           <Route element={<AppLayout />}>
             <Route

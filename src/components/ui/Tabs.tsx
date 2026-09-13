@@ -45,6 +45,7 @@ export function Tabs({
             return (
               <button
                 key={tab.id}
+                type="button"
                 onClick={() => !tab.disabled && onChange(tab.id)}
                 disabled={tab.disabled}
                 role="tab"
@@ -94,6 +95,7 @@ export function Tabs({
           return (
             <button
               key={tab.id}
+              type="button"
               onClick={() => !tab.disabled && onChange(tab.id)}
               disabled={tab.disabled}
               role="tab"
