@@ -98,31 +98,23 @@ export default function TopBar() {
         <div className="h-6 w-px bg-paper-border" aria-hidden="true" />
 
         {/* 4. User Identity Block */}
-        <div className="flex items-center gap-3">
-          <div className="size-9 rounded-full bg-accent-subtle text-accent font-bold text-xs flex items-center justify-center border border-accent/20">
+        <button
+          onClick={() => navigate('/account')}
+          className="flex items-center gap-3 hover:bg-paper-hover p-1.5 -mr-1.5 rounded-lg transition-colors text-left"
+          aria-label="My Account"
+        >
+          <div className="size-9 rounded-full bg-accent-subtle text-accent font-bold text-xs flex items-center justify-center border border-accent/20 shrink-0">
             {currentUser.firstName[0]}
             {currentUser.lastName[0]}
           </div>
 
-          <div className="hidden sm:block text-left">
+          <div className="hidden sm:block">
             <div className="text-xs font-bold text-ink leading-none">{currentUser.fullName}</div>
             <div className="text-[10px] font-mono text-ink-muted mt-1 leading-none">
               {activeRole.name}
             </div>
           </div>
-
-          <div className="pl-3 border-l border-paper-border ml-1">
-            <button
-              onClick={() => {
-                logout()
-                navigate('/sign-in')
-              }}
-              className="text-xs text-danger-text hover:text-danger hover:bg-danger-subtle px-2 py-1.5 rounded transition-colors font-medium"
-            >
-              Sign Out
-            </button>
-          </div>
-        </div>
+        </button>
       </div>
     </header>
   )

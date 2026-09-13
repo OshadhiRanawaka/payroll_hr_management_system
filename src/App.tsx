@@ -20,6 +20,7 @@ import DevicesPage from './pages/DevicesPage'
 import SettingsPage from './pages/SettingsPage'
 import DataCheckPage from './pages/DataCheckPage'
 import StyleGuidePage from './pages/StyleGuidePage'
+import AccountPage from './pages/AccountPage'
 
 function App() {
   return (
@@ -138,6 +139,7 @@ function App() {
             />
 
             {/* Utility & Verification Routes */}
+            <Route path="/account" element={<AccountPage />} />
             <Route path="/data-check" element={<DataCheckPage />} />
             <Route path="/style-guide" element={<StyleGuidePage />} />
           </Route>
