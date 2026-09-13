@@ -23,7 +23,7 @@ export default function RestrictedAccessState({ section }: { section: NavSection
             </div>
             <h2 className="text-xl font-bold text-ink">Role Permission Conflict</h2>
             <p className="text-sm text-ink-muted mt-2 max-w-md mx-auto">
-              Your active role (<strong className="text-ink">{activeRole.name}</strong>) does not have permission to view the <span className="font-mono text-ink font-semibold">{section}</span> module according to Section 4.3 of the PeopleFlow HR Specification.
+              Your active role (<strong className="text-ink">{activeRole.name}</strong>) does not have permission to view the <span className="font-mono text-ink font-semibold">{section}</span> module according to Section 9 of the PeopleFlow HR Specification.
             </p>
           </div>
 

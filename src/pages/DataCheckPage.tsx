@@ -445,7 +445,7 @@ export default function DataCheckPage() {
                   <Badge variant="neutral">{roles.length} Roles</Badge>
                 </div>
                 <p className="text-xs text-ink-muted mt-2 mb-4">
-                  Navigation section visibility matrix according to Section 4.3 & 9 of the PeopleFlow HR Specification.
+                  Navigation section visibility matrix according to Section 9 of the PeopleFlow HR Specification.
                 </p>
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs font-mono">
